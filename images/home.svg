@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+
+  <!-- Hexagon -->
+  <polygon
+    points="256,20 470,145 470,367 256,492 42,367 42,145"
+    fill="#5b5b5b"/>
+
+  <!-- House -->
+  <g fill="none"
+     stroke="#ffffff"
+     stroke-width="14"
+     stroke-linecap="round"
+     stroke-linejoin="round">
+
+    <!-- Roof -->
+    <path d="M160 250 L256 170 L352 250"/>
+
+    <!-- House Body -->
+    <rect x="185" y="250" width="142" height="110"/>
+
+    <!-- Door -->
+    <rect x="236" y="290" width="40" height="70"/>
+
+  </g>
+
+</svg>
