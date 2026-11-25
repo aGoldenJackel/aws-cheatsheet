@@ -5,33 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Work in Progress</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
 <style>
-:root {
-    --background: #ffffff;
-    --text: #202124;
-    --muted: #777777;
-    --purple: #7654d6;
-}
-
- {
-    margin: 0;
-    padding: 0;
+html, body, div, main, h1, p, a, img {
     box-sizing: border-box;
 }
 
 body {
-    font-family: 'Source Sans 3', sans-serif;
-    background: var(--background);
-    color: var(--text);
+    margin: 0;
+    padding: 25px;
+    background: #ffffff;
+    color: #202124;
+    font-family: Arial, sans-serif;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 30px 20px;
 }
 
 .container {
@@ -41,28 +29,24 @@ body {
 }
 
 .status {
-    display: inline-block;
-    color: var(--purple);
+    color: #7654d6;
     font-size: 13px;
-    font-weight: 800;
+    font-weight: bold;
     letter-spacing: 2px;
     margin-bottom: 20px;
 }
 
 h1 {
-    font-size: clamp(42px, 8vw, 76px);
-    font-weight: 800;
-    letter-spacing: -2px;
-    line-height: 1.05;
-    margin-bottom: 35px;
+    font-size: 65px;
+    font-weight: bold;
+    margin: 0 0 35px 0;
 }
 
 .image-container {
-    width: 100%;
+    margin: 0 auto 35px auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 auto 35px;
 }
 
 .image-container img {
@@ -71,40 +55,38 @@ h1 {
     max-height: 380px;
     width: auto;
     height: auto;
-    object-fit: contain;
 }
 
 .message {
     font-size: 21px;
-    font-weight: 600;
+    font-weight: bold;
     margin-bottom: 12px;
 }
 
 .submessage {
-    color: var(--muted);
+    color: #777777;
     font-size: 16px;
     margin-bottom: 35px;
 }
 
 .back-button {
     display: inline-block;
-    padding: 13px 28px;
     background: #252525;
-    color: white;
+    color: #ffffff;
     text-decoration: none;
+    padding: 13px 28px;
     border-radius: 7px;
     font-size: 15px;
-    font-weight: 700;
-    transition: background 0.2s ease;
+    font-weight: bold;
 }
 
 .back-button:hover {
-    background: var(--purple);
+    background: #7654d6;
 }
 
 @media (max-width: 600px) {
     h1 {
-        letter-spacing: -1px;
+        font-size: 42px;
     }
 
     .image-container img {
@@ -122,12 +104,12 @@ h1 {
 
 <main class="container">
 
-    <div class="status">CURRENT STATUS · UNDER DEVELOPMENT</div>
+    <div class="status">CURRENT STATUS - UNDER DEVELOPMENT</div>
 
     <h1>Work in Progress.</h1>
 
     <div class="image-container">
-        <img src="your-image.png" alt="Work in Progress illustration">
+        <img src="your-image.png" alt="Work in Progress">
     </div>
 
     <p class="message">We're digging into something new.</p>
