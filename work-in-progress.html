@@ -1,0 +1,281 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ffffff">
+<title>Work in Progress</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap');
+
+:root {
+  --ink:#585858;
+  --muted:#999;
+  --purple:#7654d6;
+  --blue:#4b9bd8;
+  --orange:#ed9b55;
+  --pink:#dc769e;
+  --line:#ededed;
+}
+
+* {box-sizing:border-box}
+
+body {
+  margin:0;
+  background:#fff;
+  color:var(--ink);
+  font-family:'Source Sans Pro',Arial,sans-serif;
+  min-height:100vh;
+}
+
+.container {
+  max-width:1120px;
+  margin:auto;
+  padding:55px 35px 40px;
+}
+
+header {
+  text-align:center;
+  padding-bottom:28px;
+  border-bottom:5px solid var(--ink);
+  margin-bottom:65px;
+}
+
+.header-title {
+  font-size:13px;
+  letter-spacing:2px;
+  font-weight:700;
+  line-height:2;
+}
+
+.hero {
+  text-align:center;
+  max-width:800px;
+  margin:0 auto;
+}
+
+.eyebrow {
+  font-size:12px;
+  letter-spacing:3px;
+  font-weight:700;
+  margin-bottom:18px;
+}
+
+h1 {
+  font-size:clamp(48px,8vw,85px);
+  line-height:1;
+  letter-spacing:-3px;
+  font-weight:900;
+  margin:0 0 20px;
+}
+
+h1 span {color:var(--purple)}
+
+.description {
+  font-size:19px;
+  line-height:1.7;
+  color:#888;
+  max-width:600px;
+  margin:0 auto;
+}
+
+.gif-container {
+  margin:45px auto;
+  max-width:520px;
+  min-height:250px;
+  background:#f5f3fb;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+  overflow:hidden;
+}
+
+.gif-container img {
+  display:block;
+  width:100%;
+  max-height:350px;
+  object-fit:contain;
+}
+
+.gif-placeholder {
+  color:#999;
+  font-size:14px;
+  text-align:center;
+  letter-spacing:1px;
+}
+
+.message {
+  font-size:25px;
+  font-weight:700;
+  margin:25px 0 10px;
+}
+
+.submessage {
+  color:#999;
+  font-size:16px;
+  margin-bottom:35px;
+}
+
+button {
+  font:inherit;
+  cursor:pointer;
+  background:var(--ink);
+  color:white;
+  border:0;
+  padding:15px 30px;
+  font-size:14px;
+  font-weight:700;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  transition:.2s;
+}
+
+button:hover {
+  background:var(--purple);
+  transform:translateY(-3px);
+}
+
+.tiles {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  margin:65px 0 0;
+}
+
+.tile {
+  aspect-ratio:1.5;
+  padding:20px;
+  color:white;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  position:relative;
+  overflow:hidden;
+}
+
+.tile:after {
+  content:"";
+  position:absolute;
+  width:130px;
+  height:130px;
+  border:25px solid #ffffff20;
+  border-radius:50%;
+  right:-45px;
+  top:-55px;
+}
+
+.tile-number {
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:2px;
+}
+
+.tile-title {
+  font-size:20px;
+  font-weight:700;
+}
+
+.purple {background:#7654d6}
+.blue {background:#4b9bd8}
+.orange {background:#ed9b55}
+
+footer {
+  margin-top:70px;
+  padding-top:25px;
+  border-top:5px solid var(--ink);
+  display:flex;
+  justify-content:center;
+  font-size:11px;
+  letter-spacing:2px;
+  font-weight:700;
+  color:#aaa;
+}
+
+@media(max-width:650px) {
+  .container {padding:30px 18px}
+  header {margin-bottom:45px}
+  h1 {font-size:55px}
+  .description {font-size:17px}
+  .gif-container {min-height:180px;margin:30px auto}
+  .tiles {grid-template-columns:1fr;gap:12px;margin-top:45px}
+  .tile {aspect-ratio:2.5}
+  .message {font-size:21px}
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<header>
+  <div class="header-title">
+    SUMMIT INTERNATIONAL SCHOOLS<br>
+    STUDENT PROJECTS & RESOURCES
+  </div>
+</header>
+
+<main class="hero">
+
+  <div class="eyebrow">CURRENT STATUS · UNDER DEVELOPMENT</div>
+
+  <h1>Work in<br>Progress<span>.</span></h1>
+
+  <p class="description">
+    Something new is being built. We're working behind the scenes
+    to bring you more resources, projects and features.
+  </p>
+
+  <div class="gif-container">
+    <!-- Replace coal-miner.gif with your GIF filename -->
+    <img
+      src="coal-miner.gif"
+      alt="Coal miner working"
+      onerror="this.style.display='none';document.getElementById('gif-placeholder').style.display='block';"
+    >
+
+    <div class="gif-placeholder" id="gif-placeholder" style="display:none">
+      YOUR GIF WILL APPEAR HERE
+    </div>
+  </div>
+
+  <div class="message">We're digging into something new.</div>
+
+  <p class="submessage">
+    Check back soon. There's more coming!
+  </p>
+
+  <button onclick="history.back()">
+    ← Go back
+  </button>
+
+</main>
+
+<div class="tiles">
+
+  <div class="tile purple">
+    <span class="tile-number">01 / DEVELOPMENT</span>
+    <span class="tile-title">New features</span>
+  </div>
+
+  <div class="tile blue">
+    <span class="tile-number">02 / RESOURCES</span>
+    <span class="tile-title">More materials</span>
+  </div>
+
+  <div class="tile orange">
+    <span class="tile-number">03 / PROJECTS</span>
+    <span class="tile-title">Coming soon</span>
+  </div>
+
+</div>
+
+<footer>
+  MORE UPDATES COMING SOON
+</footer>
+
+</div>
+</body>
+</html>
