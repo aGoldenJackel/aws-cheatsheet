@@ -4,6 +4,1116 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f5f5f5">
+<title>ESS | Grade 8 Revision</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg:#f4f4f4;
+  --white:#fff;
+  --black:#202020;
+  --muted:#888;
+  --line:#e7e7e7;
+  --purple:#7455d9;
+  --blue:#4c91dc;
+  --orange:#f39b53;
+  --pink:#e777a3;
+  --green:#62b99b;
+  --good:#26976b;
+  --bad:#e45b69;
+}
+
+* {box-sizing:border-box}
+
+body {
+  margin:0;
+  background:var(--bg);
+  color:var(--black);
+  font-family:'DM Sans',Arial,sans-serif;
+  line-height:1.6;
+}
+
+button {font:inherit;cursor:pointer}
+
+.container {
+  max-width:1100px;
+  margin:auto;
+  padding:30px 24px 60px;
+}
+
+header {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:10px 0 28px;
+  border-bottom:1px solid var(--line);
+  margin-bottom:40px;
+}
+
+.logo {
+  font-family:'Space Grotesk',sans-serif;
+  font-size:23px;
+  font-weight:800;
+  letter-spacing:-1px;
+}
+
+.logo span {color:var(--purple)}
+
+.header-label {
+  font-size:11px;
+  letter-spacing:2px;
+  font-weight:700;
+  color:#888;
+}
+
+.eyebrow {
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:2.5px;
+  color:var(--purple);
+  text-transform:uppercase;
+}
+
+h1,h2,h3 {
+  font-family:'Space Grotesk',sans-serif;
+  line-height:1.15;
+}
+
+h1 {
+  font-size:clamp(38px,7vw,68px);
+  letter-spacing:-3px;
+  margin:15px 0;
+}
+
+h2 {font-size:27px;letter-spacing:-.7px}
+
+.muted {color:var(--muted)}
+
+.intro-text {
+  max-width:650px;
+  font-size:16px;
+  color:#777;
+}
+
+.hero {
+  padding:30px 0 35px;
+}
+
+.hero-bottom {
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:25px;
+}
+
+.primary {
+  background:var(--black);
+  color:white;
+  border:0;
+  padding:15px 25px;
+  border-radius:5px;
+  font-weight:700;
+  transition:.2s;
+}
+
+.primary:hover {
+  background:var(--purple);
+  transform:translateY(-2px);
+}
+
+.secondary {
+  background:white;
+  color:var(--black);
+  border:1px solid var(--line);
+  padding:14px 22px;
+  border-radius:5px;
+  font-weight:700;
+}
+
+.tiles {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:13px;
+  margin:35px 0;
+}
+
+.tile {
+  min-height:170px;
+  border-radius:7px;
+  padding:22px;
+  color:white;
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  transition:.25s;
+}
+
+.tile:hover {
+  transform:translateY(-5px);
+  box-shadow:0 12px 25px #00000013;
+}
+
+.tile h3 {
+  font-size:21px;
+  margin:0;
+  position:relative;
+  z-index:1;
+}
+
+.tile p {
+  font-size:12px;
+  margin:6px 0 0;
+  opacity:.85;
+  position:relative;
+  z-index:1;
+}
+
+.tile .number {
+  font-family:'Space Grotesk';
+  font-size:35px;
+  font-weight:800;
+  opacity:.95;
+}
+
+.tile:after {
+  content:'';
+  position:absolute;
+  width:110px;
+  height:110px;
+  right:-30px;
+  top:-30px;
+  border:20px solid #ffffff24;
+  border-radius:50%;
+}
+
+.t-purple {background:#7455d9}
+.t-blue {background:#4c91dc}
+.t-orange {background:#ed9953}
+.t-pink {background:#db78a0}
+
+.t-wide {grid-column:span 2}
+
+.stats {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:13px;
+  margin:35px 0;
+}
+
+.stat {
+  background:white;
+  padding:20px;
+  border:1px solid var(--line);
+  border-radius:6px;
+}
+
+.stat b {
+  display:block;
+  font-family:'Space Grotesk';
+  font-size:27px;
+}
+
+.stat span {
+  font-size:10px;
+  color:#888;
+  letter-spacing:1.5px;
+  font-weight:700;
+}
+
+.section-heading {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin:45px 0 15px;
+  gap:10px;
+}
+
+.section-heading h2 {
+  font-size:19px;
+  margin:0;
+}
+
+.hidden {display:none!important}
+
+/* EXAM */
+
+.exam-header {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+  margin-bottom:25px;
+}
+
+.exam-title {
+  font-family:'Space Grotesk';
+  font-size:20px;
+  font-weight:800;
+}
+
+.timer {
+  background:white;
+  border:1px solid var(--line);
+  padding:10px 17px;
+  border-radius:5px;
+  font-family:'Space Grotesk';
+  font-size:19px;
+  font-weight:700;
+  font-variant-numeric:tabular-nums;
+}
+
+.timer.warning {color:var(--bad)}
+
+.progress-track {
+  width:100%;
+  height:6px;
+  background:#e5e5e5;
+  border-radius:10px;
+  overflow:hidden;
+  margin:15px 0 25px;
+}
+
+.progress-bar {
+  height:100%;
+  width:0;
+  background:var(--purple);
+  transition:width .3s;
+}
+
+.exam-layout {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 230px;
+  gap:20px;
+  align-items:start;
+}
+
+.question-card,.side-card,.result-card {
+  background:white;
+  border:1px solid var(--line);
+  border-radius:7px;
+}
+
+.question-card {
+  padding:35px;
+  min-height:410px;
+}
+
+.question-meta {
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  align-items:center;
+}
+
+.question-number {
+  color:var(--purple);
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:2px;
+}
+
+.category {
+  font-size:11px;
+  background:#f0edfa;
+  color:var(--purple);
+  padding:6px 11px;
+  border-radius:30px;
+  font-weight:700;
+}
+
+#question {
+  font-size:clamp(21px,3vw,28px);
+  margin:30px 0;
+  line-height:1.4;
+}
+
+.answers {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.answer {
+  min-height:75px;
+  border:1px solid var(--line);
+  background:#fafafa;
+  border-radius:5px;
+  display:flex;
+  align-items:center;
+  gap:13px;
+  padding:14px;
+  text-align:left;
+  color:var(--black);
+  transition:.18s;
+  font-size:14px;
+}
+
+.answer:hover {
+  border-color:var(--purple);
+  background:#f7f4ff;
+}
+
+.answer.selected {
+  background:#f0edfa;
+  border:2px solid var(--purple);
+  padding:13px;
+}
+
+.letter {
+  width:29px;
+  height:29px;
+  flex-shrink:0;
+  display:grid;
+  place-items:center;
+  background:#eee;
+  border-radius:4px;
+  font-size:12px;
+  font-weight:800;
+}
+
+.answer.selected .letter {
+  background:var(--purple);
+  color:white;
+}
+
+.controls {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-top:30px;
+}
+
+.controls button {
+  padding:11px 17px;
+  border-radius:5px;
+  border:1px solid var(--line);
+  background:white;
+  font-weight:700;
+}
+
+.controls .next {
+  background:var(--black);
+  color:white;
+  border:0;
+}
+
+.controls button:disabled {
+  opacity:.3;
+  cursor:not-allowed;
+}
+
+.answered-label {
+  color:#888;
+  font-size:12px;
+}
+
+.side-card {
+  padding:20px;
+}
+
+.side-card h3 {
+  font-size:16px;
+  margin:0 0 5px;
+}
+
+.side-card p {
+  font-size:12px;
+  color:#999;
+  margin:0 0 18px;
+}
+
+.navigator {
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:7px;
+}
+
+.navigator button {
+  aspect-ratio:1;
+  border:1px solid var(--line);
+  background:#fafafa;
+  border-radius:4px;
+  font-size:12px;
+  font-weight:700;
+}
+
+.navigator button.done {
+  background:#eae5fb;
+  border-color:#b6a6eb;
+  color:var(--purple);
+}
+
+.navigator button.current {
+  outline:2px solid var(--purple);
+  outline-offset:2px;
+}
+
+.legend {
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  margin-top:18px;
+  font-size:11px;
+  color:#888;
+}
+
+.legend span {display:flex;align-items:center;gap:8px}
+
+.dot {
+  width:9px;
+  height:9px;
+  border-radius:2px;
+  display:inline-block;
+  background:#eee;
+}
+
+.dot.done {background:#b6a6eb}
+.dot.current {background:var(--purple)}
+
+.submit-side {
+  width:100%;
+  margin-top:20px;
+  padding:12px;
+  background:#202020;
+  color:white;
+  border:0;
+  border-radius:4px;
+  font-weight:700;
+}
+
+/* RESULTS */
+
+.result-card {padding:35px}
+
+.result-score {
+  font-family:'Space Grotesk';
+  font-size:75px;
+  font-weight:800;
+  letter-spacing:-5px;
+  margin:15px 0 0;
+}
+
+.result-score span {
+  font-size:25px;
+  color:#aaa;
+  letter-spacing:0;
+}
+
+.result-message {
+  font-size:17px;
+  color:#777;
+}
+
+.result-stats {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin:30px 0;
+}
+
+.result-stat {
+  background:#f7f7f7;
+  padding:18px;
+  border-radius:5px;
+}
+
+.result-stat b {
+  display:block;
+  font-size:25px;
+  font-family:'Space Grotesk';
+}
+
+.result-stat span {
+  font-size:10px;
+  color:#888;
+  letter-spacing:1px;
+  font-weight:700;
+}
+
+.review-item {
+  border-bottom:1px solid var(--line);
+  padding:20px 0;
+}
+
+.review-status {
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:1px;
+}
+
+.correct {color:var(--good)}
+.incorrect {color:var(--bad)}
+
+.review-question {
+  font-weight:700;
+  margin:10px 0;
+}
+
+.review-answer {
+  font-size:13px;
+  color:#888;
+  margin:5px 0;
+}
+
+.review-correct {
+  font-size:13px;
+  color:var(--good);
+  font-weight:700;
+}
+
+footer {
+  border-top:1px solid var(--line);
+  margin-top:55px;
+  padding-top:20px;
+  color:#aaa;
+  font-size:11px;
+  letter-spacing:1px;
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+}
+
+/* MOBILE */
+
+@media(max-width:750px) {
+  .container {padding:18px 15px 40px}
+  header {margin-bottom:25px}
+  .tiles {grid-template-columns:repeat(2,1fr)}
+  .tile {min-height:145px;padding:17px}
+  .tile h3 {font-size:17px}
+  .tile .number {font-size:27px}
+  .exam-layout {grid-template-columns:1fr}
+  .side-card {order:2}
+  .question-card {padding:22px}
+  .answers {grid-template-columns:1fr}
+  .result-card {padding:22px}
+  .result-score {font-size:60px}
+  .navigator {grid-template-columns:repeat(10,1fr)}
+  .navigator button {font-size:10px}
+  .stats,.result-stats {gap:7px}
+  .stat,.result-stat {padding:12px}
+  .stat b,.result-stat b {font-size:21px}
+}
+
+@media(max-width:420px) {
+  .header-label {font-size:9px}
+  .logo {font-size:20px}
+  .tile {min-height:125px}
+  .controls {flex-wrap:wrap}
+  .answered-label {order:3;width:100%;text-align:center}
+  .navigator {grid-template-columns:repeat(5,1fr)}
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<header>
+  <div class="logo">AWS<span>.</span>ESS</div>
+  <div class="header-label">SUMMIT INTERNATIONAL SCHOOLS · GRADE 8</div>
+</header>
+
+<!-- INTRO -->
+<section id="intro">
+
+  <div class="hero">
+    <div class="eyebrow">GRADE 8 · SOCIAL STUDIES</div>
+    <h1>ESS Revision<br>Exam<span style="color:var(--purple)">.</span></h1>
+    <p class="intro-text">
+      Test your knowledge of the Renaissance and Protestant Reformation.
+      Challenge yourself with 50 questions covering important people,
+      events, inventions and historical ideas.
+    </p>
+
+    <div class="hero-bottom">
+      <button class="primary" onclick="startExam()">Start your exam →</button>
+      <span style="align-self:center;color:#999;font-size:12px">
+        45 minutes · 50 questions
+      </span>
+    </div>
+  </div>
+
+  <div class="tiles">
+    <div class="tile t-purple">
+      <div class="number">01</div>
+      <div>
+        <h3>The Renaissance</h3>
+        <p>Origins, humanism and Florence</p>
+      </div>
+    </div>
+
+    <div class="tile t-blue">
+      <div class="number">02</div>
+      <div>
+        <h3>Art & Culture</h3>
+        <p>Artists and inventions</p>
+      </div>
+    </div>
+
+    <div class="tile t-orange">
+      <div class="number">03</div>
+      <div>
+        <h3>The Reformation</h3>
+        <p>Luther and religious change</p>
+      </div>
+    </div>
+
+    <div class="tile t-pink">
+      <div class="number">04</div>
+      <div>
+        <h3>Consequences</h3>
+        <p>Religious divisions in Europe</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-heading">
+    <h2>Exam overview</h2>
+    <span class="eyebrow">YOUR CHALLENGE</span>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <b>50</b>
+      <span>TOTAL QUESTIONS</span>
+    </div>
+    <div class="stat">
+      <b>40 + 10</b>
+      <span>QUESTION TYPES</span>
+    </div>
+    <div class="stat">
+      <b>45 min</b>
+      <span>TIME LIMIT</span>
+    </div>
+  </div>
+
+  <div style="background:white;padding:22px;border:1px solid var(--line);border-radius:6px">
+    <div class="eyebrow">BEFORE YOU BEGIN</div>
+    <p style="font-size:14px;color:#777;margin-bottom:0">
+      Questions and answer choices are randomized. Select one answer
+      for each question, use the navigator to move between questions,
+      and submit when you finish. Your results and answer review will
+      appear immediately after submission.
+    </p>
+  </div>
+
+</section>
+
+<!-- EXAM -->
+<section id="exam" class="hidden">
+
+  <div class="exam-header">
+    <div>
+      <div class="eyebrow">ASSESSMENT IN PROGRESS</div>
+      <div class="exam-title">Renaissance & Reformation</div>
+    </div>
+    <div class="timer" id="timer">45:00</div>
+  </div>
+
+  <div class="progress-track">
+    <div class="progress-bar" id="progress"></div>
+  </div>
+
+  <div class="exam-layout">
+
+    <main class="question-card">
+
+      <div class="question-meta">
+        <span class="question-number" id="number">QUESTION 1</span>
+        <span class="category" id="category">Renaissance</span>
+      </div>
+
+      <h2 id="question"></h2>
+
+      <div class="answers" id="answers"></div>
+
+      <div class="controls">
+        <button id="previous" onclick="move(-1)">← Previous</button>
+        <span class="answered-label" id="answered">0 / 50 answered</span>
+        <button class="next" id="next" onclick="move(1)">Next →</button>
+      </div>
+
+    </main>
+
+    <aside class="side-card">
+      <h3>Question navigator</h3>
+      <p>Jump to any question.</p>
+
+      <div class="navigator" id="navigator"></div>
+
+      <div class="legend">
+        <span><i class="dot done"></i> Answered</span>
+        <span><i class="dot current"></i> Current question</span>
+        <span><i class="dot"></i> Not answered</span>
+      </div>
+
+      <button class="submit-side" onclick="submitExam()">
+        Submit exam →
+      </button>
+
+      <p style="margin:12px 0 0;text-align:center" id="sideAnswered">
+        0 of 50 completed
+      </p>
+    </aside>
+
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section id="results" class="hidden"></section>
+
+<footer>
+  <span>AWS.ESS · GRADE 8</span>
+  <span>REVISION EDITION · 2026</span>
+</footer>
+
+</div>
+
+<script>
+const questions = [
+["Renaissance","What does the word 'Renaissance' mean?",["Revolution","Rebirth","Reform","Discovery"],1],
+["Renaissance","Where did the Renaissance begin?",["Germany","Italy","France","England"],1],
+["Humanism","Humanism focused on the study of...",["Military strategy","Classical Greek and Roman texts","Architecture only","Trade routes"],1],
+["Florence","Which city became a leading Renaissance centre?",["Paris","Madrid","Florence","Vienna"],2],
+["Medici Family","Why was the Medici family important?",["They funded artists and scholars","They invented the printing press","They started Lutheranism","They ruled England"],0],
+["Art","Who painted the Mona Lisa?",["Raphael","Michelangelo","Leonardo da Vinci","Donatello"],2],
+["Art","What artistic technique creates depth on a flat surface?",["Patronage","Perspective","Humanism","Realism"],1],
+["Printing Press","Who developed the European movable-type printing press?",["Martin Luther","Erasmus","Johannes Gutenberg","Jan van Eyck"],2],
+["Printing Press","A major effect of the printing press was that...",["Books became more expensive","Ideas spread more quickly","People stopped reading","Trade declined"],1],
+["Northern Renaissance","Who was a leading Northern Renaissance humanist?",["Leonardo da Vinci","Erasmus","Michelangelo","Raphael"],1],
+["Northern Renaissance","Christian humanism aimed to...",["Improve understanding of Christianity through study","Replace Christianity","Ban books","Create new governments"],0],
+["Art","Which Northern Renaissance artist painted the Arnolfini Portrait?",["Raphael","Jan van Eyck","Donatello","Michelangelo"],1],
+["Leonardo da Vinci","Why is Leonardo called a polymath?",["He ruled Florence","He excelled in many fields","He invented books","He became Pope"],1],
+["Patronage","What is patronage?",["Military service","Financial support for artists and scholars","Religious taxes","Trade agreements"],1],
+["Humanism","Who is often called the father of humanism?",["Martin Luther","Johannes Gutenberg","Francesco Petrarch","Erasmus"],2],
+["Printing Press","The Gutenberg Bible was completed around...",["1255","1355","1455","1555"],2],
+["Reformation","The Protestant Reformation began in...",["1517","1436","1600","1492"],0],
+["Martin Luther","Martin Luther was a...",["King","Pope","German monk and professor","Artist"],2],
+["Indulgences","An indulgence was connected to...",["Military service","Reducing punishment for sins","Trade licences","Education"],1],
+["95 Theses","Martin Luther's 95 Theses mainly criticized...",["Humanism","Printing","Indulgence preaching","Banking"],2],
+["Martin Luther","What did Martin Luther write in 1517?",["The Prince","95 Theses","Utopia","Gutenberg Bible"],1],
+["95 Theses","The 95 Theses mainly challenged...",["Church architecture","The sale of indulgences","Humanism","The Renaissance"],1],
+["Printing Press","Why did Luther's ideas spread quickly across Europe?",["Because kings ordered everyone to read them","Because of the printing press","Because of television","Because of universities only"],1],
+["Diet of Worms","At the Diet of Worms in 1521, Martin Luther...",["Became Pope","Agreed to remove his writings","Refused to take back his writings","Moved to England"],2],
+["Frederick the Wise","Who protected Martin Luther after the Diet of Worms?",["Charles V","Henry VIII","Erasmus","Frederick the Wise"],3],
+["Protestant Reformation","The Protestant Reformation was a movement that...",["Supported indulgence sales","Challenged practices in the Catholic Church","Promoted feudalism","Ended printing"],1],
+["Lutheranism","Lutheranism is named after...",["Leonardo da Vinci","Martin Luther","John Calvin","Erasmus"],1],
+["Calvinism","Which individual is most closely associated with Calvinism?",["John Calvin","Henry VIII","Martin Luther","Petrarch"],0],
+["Anglicanism","Anglicanism developed in...",["Germany","France","England","Italy"],2],
+["Henry VIII","Who became head of the Church of England?",["Martin Luther","John Calvin","Henry VIII","Charles V"],2],
+["Catholic Church","Who was the highest authority in the Catholic Church?",["The King","The Pope","The Archbishop of Mainz","The Emperor"],1],
+["Authority","According to many Protestants, the highest religious authority was...",["The King","Tradition","The Bible","The Pope"],2],
+["Bible","Many Protestants wanted the Bible translated into...",["Latin only","Ancient Greek only","Local languages","No languages"],2],
+["Peace of Augsburg","The Peace of Augsburg was signed in...",["1455","1517","1555","1648"],2],
+["Peace of Augsburg","The Peace of Augsburg allowed rulers to choose between...",["Anglicanism and Islam","Catholicism and Lutheranism","Humanism and Calvinism","Orthodoxy and Anglicanism"],1],
+["Printing Press","Which invention helped both Renaissance and Reformation ideas spread?",["Compass","Printing Press","Steam Engine","Telescope"],1],
+["Consequences","One major result of the Reformation was...",["Religious unity across Europe","The end of Christianity","The growth of different Christian denominations","The end of education"],2],
+["Consequences","Which war is often linked to religious divisions after the Reformation?",["Hundred Years' War","Thirty Years' War","Peloponnesian War","Crimean War"],1],
+["Historical Thinking","Which factor helped spread Reformation ideas the MOST?",["Printing technology","Castles","Feudalism","Longbows"],0],
+["Cause and Effect","What was a direct effect of criticisms of indulgences?",["The beginning of the Protestant Reformation","The fall of Florence","The invention of humanism","The rise of the Medici Bank"],0],
+["Fill in the Blank","The Renaissance began in ________.",["France","Germany","Italy","England"],2],
+["Fill in the Blank","The wealthy family that supported many artists in Florence was the ________ family.",["Medici","Tudor","Calvin","Borgia"],0],
+["Fill in the Blank","Johannes Gutenberg developed the ________ press.",["steam","printing","oil","wine"],1],
+["Fill in the Blank","Martin ________ wrote the 95 Theses.",["Calvin","Henry","Luther","Erasmus"],2],
+["Fill in the Blank","The document written by Martin Luther was called the 95 ________.",["Arguments","Rules","Articles","Theses"],3],
+["Fill in the Blank","A practice criticized during the Reformation was the sale of ________.",["Taxes","Books","Indulgences","Land"],2],
+["Fill in the Blank","The Protestant ________ challenged practices within the Catholic Church.",["Movement","Reformation","Empire","Revival"],1],
+["Fill in the Blank","The leading Northern Renaissance humanist was ________.",["Michelangelo","Raphael","Erasmus","Donatello"],2],
+["Fill in the Blank","The Peace of ________ was signed in 1555.",["Westphalia","Rome","Worms","Augsburg"],3],
+["Fill in the Blank","A person who financially supports artists is called a ________.",["Scholar","Patron","Monk","Merchant"],1]
+];
+
+let order = [];
+let answers = {};
+let current = 0;
+let time = 45 * 60;
+let clock = null;
+let finished = false;
+
+function shuffle(array) {
+  let a = [...array];
+  for (let i = a.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function startExam() {
+  order = shuffle(questions.map((_, i) => i));
+
+  document.getElementById("intro").classList.add("hidden");
+  document.getElementById("exam").classList.remove("hidden");
+
+  buildNavigator();
+  renderQuestion();
+  startTimer();
+
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function startTimer() {
+  clock = setInterval(() => {
+    time--;
+
+    const m = Math.floor(time / 60);
+    const s = time % 60;
+    const timer = document.getElementById("timer");
+
+    timer.textContent = `${m}:${String(s).padStart(2,"0")}`;
+
+    if (time <= 300) timer.classList.add("warning");
+
+    if (time <= 0) submitExam(true);
+  }, 1000);
+}
+
+function buildNavigator() {
+  const nav = document.getElementById("navigator");
+  nav.innerHTML = "";
+
+  order.forEach((_, i) => {
+    const b = document.createElement("button");
+    b.textContent = i + 1;
+    b.onclick = () => {
+      current = i;
+      renderQuestion();
+      window.scrollTo({top:0,behavior:"smooth"});
+    };
+    b.id = "nav" + i;
+    nav.appendChild(b);
+  });
+}
+
+function renderQuestion() {
+  const q = questions[order[current]];
+
+  document.getElementById("number").textContent =
+    `QUESTION ${current+1} / 50`;
+
+  document.getElementById("category").textContent = q[0];
+  document.getElementById("question").textContent = q[1];
+
+  document.getElementById("progress").style.width =
+    ((current + 1) / 50 * 100) + "%";
+
+  const box = document.getElementById("answers");
+  box.innerHTML = "";
+
+  if (!q.displayOrder) {
+    q.displayOrder = shuffle([0,1,2,3]);
+  }
+
+  q.displayOrder.forEach((choice, i) => {
+    const b = document.createElement("button");
+    b.className = "answer";
+
+    if (answers[order[current]] === choice) {
+      b.classList.add("selected");
+    }
+
+    const letter = document.createElement("span");
+    letter.className = "letter";
+    letter.textContent = "ABCD"[i];
+
+    const text = document.createElement("span");
+    text.textContent = q[2][choice];
+
+    b.append(letter, text);
+
+    b.onclick = () => {
+      answers[order[current]] = choice;
+      renderQuestion();
+    };
+
+    box.appendChild(b);
+  });
+
+  document.getElementById("previous").disabled = current === 0;
+
+  document.getElementById("next").textContent =
+    current === 49 ? "Finish →" : "Next →";
+
+  const count = Object.keys(answers).length;
+
+  document.getElementById("answered").textContent =
+    `${count} / 50 answered`;
+
+  document.getElementById("sideAnswered").textContent =
+    `${count} of 50 completed`;
+
+  order.forEach((_, i) => {
+    const b = document.getElementById("nav" + i);
+    b.classList.toggle("done", answers[order[i]] !== undefined);
+    b.classList.toggle("current", i === current);
+  });
+}
+
+function move(direction) {
+  if (direction === -1 && current > 0) {
+    current--;
+  } else if (direction === 1 && current < 49) {
+    current++;
+  } else if (direction === 1 && current === 49) {
+    if (confirm("Submit your exam now?")) submitExam();
+    return;
+  }
+
+  renderQuestion();
+}
+
+function submitExam(auto = false) {
+  if (finished) return;
+
+  const unanswered = 50 - Object.keys(answers).length;
+
+  if (!auto) {
+    const message = unanswered
+      ? `You have ${unanswered} unanswered questions. Submit anyway?`
+      : "Are you sure you want to submit your exam?";
+
+    if (!confirm(message)) return;
+  }
+
+  finished = true;
+  clearInterval(clock);
+
+  let score = 0;
+
+  questions.forEach((q, i) => {
+    if (answers[i] === q[3]) score++;
+  });
+
+  const percent = Math.round(score / 50 * 100);
+  const incorrect = 50 - score;
+
+  let message = "Keep practising and review your answers.";
+  if (percent >= 90) message = "Outstanding work! You have an excellent understanding of the material.";
+  else if (percent >= 80) message = "Great work! You have a strong understanding of the material.";
+  else if (percent >= 70) message = "Good effort! A little more revision can improve your result.";
+  else if (percent >= 50) message = "You're making progress. Review the topics you found challenging.";
+  
+  document.getElementById("exam").classList.add("hidden");
+
+  const result = document.getElementById("results");
+  result.classList.remove("hidden");
+
+  result.innerHTML = `
+    <div class="result-card">
+      <div class="eyebrow">ASSESSMENT COMPLETED</div>
+      <h1 style="font-size:clamp(35px,6vw,55px)">Your results<span style="color:var(--purple)">.</span></h1>
+
+      <div class="result-score">${score}<span> / 50</span></div>
+      <p class="result-message">${percent}% correct · ${message}</p>
+
+      <div class="progress-track">
+        <div class="progress-bar" style="width:${percent}%"></div>
+      </div>
+
+      <div class="result-stats">
+        <div class="result-stat">
+          <b class="correct">${score}</b>
+          <span>CORRECT</span>
+        </div>
+        <div class="result-stat">
+          <b class="incorrect">${incorrect}</b>
+          <span>INCORRECT</span>
+        </div>
+        <div class="result-stat">
+          <b>${Object.keys(answers).length}</b>
+          <span>ANSWERED</span>
+        </div>
+      </div>
+
+      <div class="eyebrow">NEXT STEP</div>
+      <h2>Review your performance</h2>
+      <p class="muted">Check your answers and identify the topics you should revise again.</p>
+
+      <button class="primary" id="reviewButton">Review answers ↓</button>
+      <button class="secondary" onclick="location.reload()">Retake exam ↻</button>
+
+      <div id="review" class="hidden" style="margin-top:35px">
+        <div class="section-heading">
+          <h2>Answer review</h2>
+          <span class="eyebrow">50 QUESTIONS</span>
+        </div>
+      </div>
+    </div>
+  `;
+
+  document.getElementById("reviewButton").onclick = showReview;
+
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function showReview() {
+  const box = document.getElementById("review");
+  box.classList.remove("hidden");
+  box.innerHTML = `
+    <div class="section-heading">
+      <h2>Answer review</h2>
+      <span class="eyebrow">50 QUESTIONS</span>
+    </div>
+  `;
+
+  order.forEach((index, pos) => {
+    const q = questions[index];
+    const chosen = answers[index];
+    const correct = chosen === q[3];
+
+    const item = document.createElement("div");
+    item.className = "review-item";
+
+    const status = document.createElement("div");
+    status.className = "review-status " +
+      (correct ? "correct" : "incorrect");
+
+    status.textContent = `${pos+1}. ${correct ? "✓ CORRECT" : "✕ INCORRECT"}`;
+
+    const category = document.createElement("div");
+    category.className = "eyebrow";
+    category.style.marginTop = "10px";
+    category.textContent = q[0];
+
+    const question = document.createElement("div");
+    question.className = "review-question";
+    question.textContent = q[1];
+
+    const your = document.createElement("div");
+    your.className = "review-answer";
+    your.textContent = "Your answer: " +
+      (chosen === undefined ? "Not answered" : q[2][chosen]);
+
+    const answer = document.createElement("div");
+    answer.className = "review-correct";
+    answer.textContent = "Correct answer: " + q[2][q[3]];
+
+    item.append(status, category, question, your, answer);
+    box.appendChild(item);
+  });
+
+  document.getElementById("reviewButton").textContent =
+    "Answers displayed ✓";
+
+  document.getElementById("reviewButton").disabled = true;
+
+  box.scrollIntoView({behavior:"smooth",block:"start"});
+}
+</script>
+</body>
+</html>
+
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Grade 8 ESS Exam</title>
 <style>
 :root{
@@ -397,4 +1507,4 @@ function showReview(){
 }
 </script>
 </body>
-</html>
+</html>-->
