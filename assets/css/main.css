@@ -3327,3 +3327,6 @@ input, select, textarea {
 			}
 
 		}
+.tiles {
+    justify-content: center;
+}
