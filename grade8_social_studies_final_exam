@@ -84,7 +84,7 @@ button:disabled{opacity:.35;cursor:not-allowed}
 
 <section class="card" id="intro">
  <div class="eyebrow">END OF UNIT ASSESSMENT</div>
- <h1>Renaissance &<br>Protestant Reformation</h1>
+ <h1>Renaissance & Protestant Reformation</h1>
  <p class="muted">Test your knowledge of the Renaissance, humanism, art, the Medici family, the printing press and the Protestant Reformation.</p>
 
  <div class="stats">
