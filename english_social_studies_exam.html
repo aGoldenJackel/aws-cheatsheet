@@ -249,7 +249,7 @@ button:disabled {
 
 .stats {
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:repeat(2,1fr);
   gap:18px;
   margin:35px 0;
 }
@@ -748,10 +748,6 @@ footer {
       <span>QUESTIONS</span>
     </div>
     <div class="stat">
-      <b>40 + 10</b>
-      <span>QUESTION TYPES</span>
-    </div>
-    <div class="stat">
       <b>45:00</b>
       <span>TIME LIMIT</span>
     </div>
@@ -1087,7 +1083,7 @@ function submitExam(auto=false) {
         </div>
       </button>
 
-      <button class="tile blue" onclick="location.reload()">
+      <button class="tile blue" onclick="restartExam()">
         <span class="tile-number">02</span>
         <div>
           <div class="tile-title">Try again</div>
@@ -1108,7 +1104,39 @@ function submitExam(auto=false) {
 
   window.scrollTo({top:0,behavior:"smooth"});
 }
+function restartExam() {
+  // Reset exam data
+  answers = {};
+  current = 0;
+  time = 45 * 60;
+  finished = false;
 
+  // Reset timer
+  clearInterval(clock);
+
+  // Reset display
+  document.getElementById("results").classList.add("hidden");
+  document.getElementById("exam").classList.remove("hidden");
+
+  // Generate a new randomized test
+  questions.forEach(q => {
+    q.displayOrder = null;
+  });
+
+  order = shuffle(questions.map((_, i) => i));
+
+  // Reset timer display
+  const timer = document.getElementById("timer");
+  timer.textContent = "45:00";
+  timer.classList.remove("warning");
+
+  // Start the new exam
+  buildNavigator();
+  renderQuestion();
+  startTimer();
+
+  window.scrollTo({top: 0, behavior: "smooth"});
+}
 function showReview() {
   const box = document.getElementById("review");
   box.classList.remove("hidden");
