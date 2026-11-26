@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>امتحان اللغة العربية - الصف الثامن</title>
+<style>
+
+:root {
+  --ink:#17191f;
+  --muted:#6c707a;
+  --line:#e7e8ec;
+  --purple:#7654d6;
+  --blue:#3979dc;
+  --orange:#ed9842;
+  --pink:#db6b9e;
+  --green:#249b75;
+  --red:#df5963;
+  --paper:#ffffff;
+}
+html,body,div,header,section,main,h1,h2,h3,p,ul,li,button,input,label,span,small,strong,footer {
+  box-sizing:border-box;
+}
+body {
+  margin:0;
+  padding:36px 24px 50px;
+  background:#fff;
+  color:#5b5b5b;
+  font-family:Arial,sans-serif;
+}
+button,input {font:inherit}
+button {cursor:pointer}
+.container {width:100%;max-width:840px;margin:0 auto}
+header {text-align:center;margin:0 auto 50px;padding-bottom:26px;border-bottom:4px solid #595959}
+.logo {font-size:10px;font-weight:900;letter-spacing:2px;margin-bottom:10px;color:#30333a}
+.tag {font-size:9px;color:#30333a;font-weight:800;letter-spacing:2px}
+.card {background:#fff;border:1px solid var(--line);border-radius:5px;padding:24px;margin-bottom:18px}
+h1,h2,h3,p {margin-top:0}
+h1 {font-size:48px;line-height:1.12;margin-bottom:18px;color:#5b5b5b;font-weight:900}
+h2 {font-size:22px}
+h3 {font-size:16px}
+.muted {color:var(--muted)}
+.intro {line-height:2}
+.section-label {font-size:9px;font-weight:900;letter-spacing:2px;color:#30333a;margin-bottom:16px}
+.welcome-title {margin-bottom:18px}
+.welcome-copy {max-width:500px;line-height:1.9;margin-bottom:16px;font-size:14px;color:#858585}
+.tile-grid {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:34px 0 38px}
+.tile {position:relative;overflow:hidden;min-height:200px;padding:17px;border-radius:0;color:#fff;display:flex;flex-direction:column;justify-content:space-between}
+.tile:after {content:"";position:absolute;width:115px;height:115px;border:20px solid rgba(255,255,255,.18);border-radius:50%;left:-22px;top:-42px}
+.tile strong {position:relative;z-index:1;font-size:14px;line-height:1.3}
+.tile span {position:relative;z-index:1;font-size:16px;font-weight:800;line-height:1.5}
+.tile.purple {background:#7952d6}
+.tile.blue {background:#589bd5}
+.tile.orange {background:#efa05a}
+.tile.pink {background:#d86f9b}
+.tile.green {background:var(--green)}
+.tile.red {background:var(--red)}
+.stats {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:24px 0 0}
+.stat {border:0;border-left:4px solid #7952d6;background:#f5f5f5;padding:20px;text-align:left;border-radius:0;min-height:84px}
+.stat strong {display:block;font-size:22px;font-weight:900;color:#5b5b5b}
+.stat:nth-child(2) {border-left-color:#589bd5}
+.stat small {font-size:9px;color:#929292;font-weight:800;letter-spacing:2px}
+.instructions {display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin:16px 0 20px}
+.instruction {border:1px solid var(--line);padding:12px;border-right:4px solid var(--purple);font-size:13px;line-height:1.8}
+.btn {border:0;border-radius:0;padding:13px 24px;background:#595959;color:#fff;font-weight:900;font-size:11px;letter-spacing:.4px;transition:background .15s}
+.btn:hover {background:#7654d6}
+.btn-primary {background:#22242a;color:#fff}
+.btn-secondary {background:#ececf0;color:var(--ink)}
+.btn-secondary:hover {background:#dedee5}
+.btn-danger {background:#22242a;color:#fff}
+.btn:disabled {opacity:.4;cursor:not-allowed}
+.hidden {display:none!important}
+.topbar {display:flex;justify-content:space-between;align-items:center;gap:10px;margin:0 0 14px;flex-wrap:wrap}
+.exam-heading {display:flex;flex-direction:column;gap:5px}
+.exam-heading .section-label {font-size:8px;letter-spacing:2px;margin:0;color:#30333a}
+.exam-heading strong {font-size:12px;color:#30333a;letter-spacing:.5px}
+.timer {font-weight:900;color:#555;background:#f1f1f1;border:0;padding:8px 12px;border-radius:0;direction:ltr;font-size:12px}
+.timer.warning {color:var(--red);background:#fff0f0}
+.progress-track {height:5px;background:#e9e9e9;overflow:hidden;margin:0 0 22px}
+.progress-fill {height:100%;width:0;background:var(--purple);transition:width .25s}
+.question-line {display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px}
+.question-line .section-label {margin:0;font-size:8px;color:var(--purple)}
+.print-label {font-size:8px;color:var(--purple);background:#f1edfb;padding:5px 9px;font-weight:800}
+.question-card {border:0;padding:0;margin:0 0 18px;background:transparent}
+.question-panel {background:#f3f0fa;border-left:4px solid var(--purple);padding:18px 20px;margin-bottom:24px;min-height:100px}
+.question-kicker {font-size:8px;font-weight:900;letter-spacing:2px;color:#777;margin-bottom:10px}
+.story {background:#fff;padding:14px 16px;line-height:2;font-size:14px;margin-bottom:14px;border-left:3px solid var(--orange);color:#555}
+.story h3 {color:var(--orange)}
+.question-title {font-size:18px;line-height:1.7;margin:0;color:#444;font-weight:800}
+.answer-heading {display:flex;justify-content:space-between;align-items:center;margin:0 0 10px;color:#555}
+.answer-heading strong {font-size:14px}
+.answer-heading span {font-size:8px;color:#555;letter-spacing:1px}
+.options {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+.option {position:relative;display:flex;align-items:center;justify-content:center;gap:9px;min-height:115px;padding:16px 12px;border:0;border-radius:0;cursor:pointer;line-height:1.7;background:#7952d6;color:#fff;text-align:center;font-size:14px;font-weight:800;transition:filter .15s,outline .15s}
+.option:after {content:"";position:absolute;width:68px;height:68px;border:10px solid rgba(255,255,255,.13);border-radius:50%;right:-18px;bottom:-30px;pointer-events:none}
+.option:hover {filter:brightness(.96)}
+.option.selected {outline:3px solid #333;outline-offset:-3px;filter:brightness(.94)}
+.option input {position:absolute;opacity:0;width:1px;height:1px}
+.option-letter {position:absolute;top:12px;left:12px;width:auto;height:auto;display:block;color:rgba(255,255,255,.82);font-size:8px;font-weight:900;letter-spacing:1px;background:transparent}
+.option:nth-child(4n+2) {background:#589bd5}
+.option:nth-child(4n+3) {background:#efa05a}
+.option:nth-child(4n+4) {background:#d86f9b}
+.fill-input {width:100%;padding:16px;border:1px solid var(--line);border-radius:0;outline:none;direction:rtl;background:#fff;font-size:16px}
+.fill-input:focus {border-color:var(--purple)}
+.actions {display:flex;justify-content:space-between;align-items:center;gap:10px;margin:20px 0 26px;padding-top:13px;border-top:1px solid #e7e7e7}
+.answered-count {font-size:8px;color:#929292;text-align:center}
+.btn {border:0;border-radius:0;padding:10px 16px;background:#595959;color:#fff;font-weight:900;font-size:9px;letter-spacing:.4px;transition:background .15s}
+.btn:hover {background:#7654d6}
+.btn-primary {background:#595959;color:#fff}
+.btn-secondary {background:#fff;color:#aaa;border:1px solid #e8e8e8}
+.btn-secondary:hover {background:#f5f5f5;color:#555}
+.btn-danger {background:#595959;color:#fff}
+.btn:disabled {opacity:.4;cursor:not-allowed}
+.navigator-heading {display:flex;justify-content:space-between;align-items:center;margin:0 0 10px;color:#555}
+.navigator-heading strong {font-size:14px}
+.navigator-heading span {font-size:8px;font-weight:900;letter-spacing:1.5px}
+.nav-grid {display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:4px;margin:0 0 18px}
+.nav-item {aspect-ratio:1/1;border:0;background:#e1e1e1;border-radius:0;padding:0;color:#fff;font-size:8px;font-weight:900}
+.nav-item.current {background:#b39be9;color:#fff;outline:2px solid #555;outline-offset:1px}
+.nav-item.answered {background:#d4c8f1;color:#fff}
+.nav-item.current.answered {background:#7952d6;color:#fff}
+.navigator-legend {display:none}
+.finish-wrap {display:flex;justify-content:space-between;align-items:center;gap:12px;margin:16px 0 0;padding:12px;background:#f5f5f5}
+.finish-copy {display:flex;flex-direction:column;gap:3px;font-size:10px;color:#555}
+.finish-copy span {font-size:8px;color:#929292}
+.finish-wrap .btn {width:auto;background:#595959;white-space:nowrap}
+.result-hero {text-align:center;padding:32px;border-top:6px solid var(--purple)}
+.grade {font-size:68px;font-weight:900;line-height:1.2}
+.score {font-size:25px;font-weight:900;margin:8px 0}
+.grade-A {color:var(--green)}
+.grade-B {color:var(--blue)}
+.grade-C {color:var(--orange)}
+.grade-D {color:#c87837}
+.grade-F {color:var(--red)}
+.result-grid {display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.topic {padding:15px;border-radius:4px;background:#f7f7f9;border-top:4px solid var(--purple)}
+.topic:nth-child(2) {border-color:var(--blue)}
+.topic:nth-child(3) {border-color:var(--orange)}
+.topic:nth-child(4) {border-color:var(--pink)}
+.topic:nth-child(5) {border-color:var(--green)}
+.topic-head {display:flex;justify-content:space-between;gap:8px;font-weight:800}
+.mini-track {height:7px;background:#e5e5e9;margin-top:10px;overflow:hidden}
+.mini-fill {height:100%;background:var(--purple)}
+.review-item {border:1px solid var(--line);border-radius:4px;padding:16px;margin-bottom:12px}
+.review-item.correct {border-right:5px solid var(--green)}
+.review-item.wrong {border-right:5px solid var(--red)}
+.answer-line {margin:7px 0;font-size:14px;line-height:1.8}
+.explanation {background:#f6f6f8;padding:12px;margin-top:10px;line-height:1.9;font-size:14px}
+.certificate {border:5px double #c49c43;padding:32px;text-align:center;background:#fffdf5}
+.certificate h2 {color:#987327;font-size:30px}
+.certificate .student {font-size:25px;font-weight:900;margin:20px}
+.confetti {position:fixed;top:-20px;width:9px;height:14px;animation:fall 3s linear forwards;pointer-events:none;z-index:10}
+@keyframes fall {to {transform:translateY(110vh) rotate(700deg);opacity:0}}
+footer {text-align:center;color:var(--muted);font-size:11px;margin-top:25px}
+@media(max-width:700px) {
+  body {padding:17px 12px 35px}
+  .card {padding:18px}
+  h1 {font-size:25px}
+  .tile-grid {grid-template-columns:repeat(2,minmax(0,1fr))}
+  .tile {min-height:150px}
+  h1 {font-size:36px}
+  header {margin-bottom:35px}
+  .options {grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+  .option {min-height:105px;padding:12px 8px;font-size:12px}
+  .question-title {font-size:17px}
+  .nav-grid {grid-template-columns:repeat(5,minmax(0,1fr));gap:4px}
+  .actions {margin:16px 0 22px}
+  .finish-wrap {align-items:flex-start}
+  .finish-wrap .btn {padding:10px 12px}
+  .instructions {grid-template-columns:1fr}
+  .result-grid {grid-template-columns:1fr}
+  .actions .btn {padding:12px 14px;font-size:13px}
+}
+@media print {
+  body {background:#fff}
+  .container {max-width:none}
+  .btn,header,.topbar,.progress-track,.nav-grid,footer {display:none!important}
+  .card {box-shadow:none;break-inside:avoid}
+}
+
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<div class="logo">SUMMIT INTERNATIONAL SCHOOLS</div>
+<div class="tag">GRADE 8 · REVISION SERIES</div>
+</header>
+<section id="welcome">
+<div class="section-label">اللغة العربية · الامتحان 01</div>
+<h1 class="welcome-title">امتحان اللغة العربية<span style="color:#7952d6">.</span></h1>
+<p class="welcome-copy muted">اختبر مهاراتك في القراءة والشعر والمفردات والقواعد. يتكوّن الامتحان من 30 سؤالاً لقياس فهمك وتطبيقك للمهارات اللغوية.</p>
+<button class="btn btn-primary" id="startBtn">ابدأ الامتحان ←</button>
+<button class="btn btn-secondary hidden" id="resumeBtn">استكمال المحاولة السابقة</button>
+<button class="btn btn-danger hidden" id="resetSavedBtn">بدء محاولة جديدة</button>
+<div class="tile-grid">
+<div class="tile purple"><strong>01 / القراءة والفهم</strong><span>فهم النص وتحليل الأفكار</span></div>
+<div class="tile blue"><strong>02 / الشعر · من تجارب الحياة</strong><span>المعاني والمهارات الأدبية</span></div>
+<div class="tile orange"><strong>03 / المفردات</strong><span>المعاني والتراكيب</span></div>
+<div class="tile pink"><strong>04 / التمييز والحال</strong><span>القواعد والتطبيق</span></div>
+</div>
+<h2 style="font-size:20px;margin:0 0 16px;color:#555">داخل الامتحان</h2>
+<div class="stats">
+<div class="stat"><strong>30</strong><small>سؤالاً</small></div>
+<div class="stat"><strong>45:00</strong><small>مدة الامتحان</small></div>
+</div>
+</section>
+<section id="quiz" class="hidden">
+<div class="topbar">
+  <div class="exam-heading">
+    <div class="section-label">ASSESSMENT IN PROGRESS</div>
+    <strong>EXAM 01</strong>
+  </div>
+  <div id="timer" class="timer">45:00</div>
+</div>
+<div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+<div class="question-line">
+  <div class="section-label" id="questionCounter">QUESTION 01 / 30</div>
+  <div class="print-label" id="questionSection">القراءة والفهم</div>
+</div>
+<div class="question-card">
+  <div class="question-panel">
+    <div class="question-kicker">سؤالك</div>
+    <div id="storyBox" class="story hidden"></div>
+    <h2 class="question-title" id="questionText"></h2>
+  </div>
+  <div class="answer-heading">
+    <strong>اختر إجابتك</strong>
+    <span>أ — ب — ج — د</span>
+  </div>
+  <div id="answerArea" class="options"></div>
+</div>
+<div class="actions">
+  <button class="btn btn-secondary" id="prevBtn">← السابق</button>
+  <div class="answered-count" id="progressText">0 / 30 تمت الإجابة</div>
+  <button class="btn btn-primary" id="nextBtn">التالي ←</button>
+</div>
+<div class="navigator-heading">
+  <strong>التنقل بين الأسئلة</strong>
+  <span>30 سؤالاً</span>
+</div>
+<div class="nav-grid" id="navGrid"></div>
+<div class="finish-wrap">
+  <div class="finish-copy"><strong>هل أنت مستعد للتسليم؟</strong><span id="finishProgress">0 من 30 سؤالاً تمت الإجابة عنها.</span></div>
+  <button class="btn btn-danger" id="finishBtn">إنهاء الامتحان ←</button>
+</div>
+</section>
+<section id="results" class="hidden">
+<div class="card result-hero" id="resultHero"><div class="section-label">النتيجة النهائية</div><div class="grade" id="gradeLetter"></div><div class="score" id="scoreText"></div><p class="muted" id="gradeMessage"></p></div>
+<div class="card"><h2>تحليل مستواك</h2><div class="result-grid" id="topicResults"></div><h3 style="margin-top:22px">تقييم الأداء</h3><p id="personalFeedback" class="intro"></p></div>
+<div id="certificateBox" class="card hidden"><div class="certificate"><div style="font-size:45px">🏆</div><h2>شهادة تفوق</h2><p>تشهد أكاديمية اللغة العربية بأن الطالب قد اجتاز الامتحان التجريبي بتفوق.</p><div class="student">طالب الصف الثامن</div><p id="certificateScore"></p><p style="color:#987327">اللغة العربية · الفصل الدراسي الأول 2026</p></div><button class="btn btn-secondary" onclick="window.print()">طباعة الشهادة</button></div>
+<div class="card"><h2>مراجعة الإجابات</h2><div class="stats"><div class="stat"><strong id="correctCount">0</strong><small>إجابات صحيحة</small></div><div class="stat"><strong id="wrongCount">0</strong><small>إجابات خاطئة</small></div><div class="stat"><strong>30</strong><small>إجمالي الأسئلة</small></div></div><button class="btn btn-primary" id="wrongReviewBtn">عرض الإجابات الخاطئة</button> <button class="btn btn-secondary" id="allReviewBtn">عرض جميع الإجابات</button> <button class="btn btn-secondary" onclick="window.print()">طباعة النتائج</button><div id="reviewArea" class="hidden" style="margin-top:20px"></div></div>
+<button class="btn btn-primary" id="retryBtn" style="width:100%">إعادة الامتحان من البداية ↻</button>
+</section><footer>منصة التدريب على امتحان اللغة العربية · 2026</footer>
+</div>
+<script>
+const story=[
+`في صباح يومٍ شتويّ، أعلنت المدرسة عن مسابقةٍ تهدف إلى تحويل الساحة المهملة إلى حديقةٍ تعليمية. تحمّس الطلاب للفكرة، لكنهم اختلفوا حول طريقة تنفيذها؛ فبعضهم أراد شراء نباتاتٍ جاهزة، بينما اقترح آخرون زراعة البذور ومتابعة نموها بأنفسهم. وقف سالم يستمع إلى الجميع دون أن يقاطع أحداً، ثم اقترح تقسيم العمل إلى مجموعات، بحيث تتولى كل مجموعة مسؤوليةً محددة. لم يكن سالم أكثر الطلاب خبرةً في الزراعة، لكنه كان يؤمن بأن التعاون يحوّل الأفكار الصغيرة إلى إنجازاتٍ كبيرة.`,
+`بدأ العمل بعد انتهاء الدوام المدرسي. جمع الطلاب الأدوات، ونظفوا الأرض، وأعدوا التربة بعناية. لاحظت مريم أن بعض النباتات تحتاج إلى ضوء الشمس أكثر من غيرها، فبحثت في الكتب وسألت معلمة العلوم عن أفضل مكانٍ لزراعتها. أما سالم فكان يسجل الملاحظات يومياً، ويقارن نمو النباتات، ويذكّر زملاءه بأهمية الاعتدال في الري؛ لأن كثرة الماء قد تضر الجذور بدلاً من أن تساعدها. وبعد أسبوعين، هبت رياح قوية وأسقطت بعض الأوعية، فتراجع حماس بعض الطلاب، لكن المجموعة لم تستسلم. أعادوا ترتيب الحديقة، وثبتوا الأوعية، واستفادوا من التجربة لتقوية عملهم.`,
+`عندما جاء يوم عرض المشاريع، بدت الحديقة أكثر جمالاً مما توقع الجميع. لم تكن النباتات وحدها مصدر فخرهم، بل كانت التجربة التي علمتهم الصبر وحسن التخطيط واحترام آراء الآخرين. قالت المعلمة: «إن قيمة هذا العمل لا تقاس بعدد الأزهار فقط، بل بما اكتسبتموه من معرفةٍ ومسؤولية». أدرك سالم أن النجاح الحقيقي لا يأتي دائماً بسرعة، وأن الخطأ قد يصبح معلماً مفيداً إذا تعامل الإنسان معه بعقلٍ منفتح. ومنذ ذلك اليوم، أصبحت الحديقة مكاناً يجتمع فيه الطلاب للتعلم والتعاون، لا مجرد مساحةٍ خضراء تزين المدرسة.`
+].join('\n\n');
+const questions=[
+{id:1,topic:'القراءة',section:'النص الخارجي',type:'mcq',story:true,q:'ما الفكرة الرئيسة التي يدور حولها النص؟',opts:['أهمية التعاون والصبر والتخطيط في تحقيق النجاح','ضرورة شراء الأدوات الحديثة لتحقيق التفوق','أهمية الفوز في المسابقات المدرسية مهما كانت الوسيلة','دور المعلم وحده في إنجاز المشروعات المدرسية'],a:0,e:'النص يوضح أن التعاون والتخطيط والصبر ساعدت الطلاب على تحويل فكرة الحديقة إلى إنجاز ناجح.'},
+{id:2,topic:'المفردات',section:'النص الخارجي',type:'mcq',story:true,q:'ما معنى كلمة «المهملة» في الفقرة الأولى؟',opts:['التي لم تحظَ بالعناية والاهتمام','التي ازدحمت بالزوار والطلاب','التي زُرعت بأعداد كبيرة من النباتات','التي أُعدت لاستقبال المناسبات'],a:0,e:'المهملة تعني التي لم يُعتنَ بها أو تُعطَ الاهتمام اللازم.'},
+{id:3,topic:'القراءة',section:'النص الخارجي',type:'mcq',story:true,q:'لماذا اقترح سالم تقسيم العمل إلى مجموعات؟',opts:['لتوزيع المسؤوليات وتنظيم جهود الطلاب','لإعفاء بعض الطلاب من المشاركة في المشروع','لإنهاء المشروع دون الحاجة إلى التخطيط','لجعل مجموعة واحدة تتحمل جميع المهام'],a:0,e:'تقسيم العمل يساعد على توزيع المهام وتنظيم العمل الجماعي.'},
+{id:4,topic:'القراءة',section:'النص الخارجي',type:'tf',story:true,q:'كان سالم أكثر الطلاب خبرةً في الزراعة، ولذلك اختاره زملاؤه قائداً.',a:false,e:'النص يذكر صراحةً أنه لم يكن أكثر الطلاب خبرةً، وإنما تميز بالإيمان بالتعاون.'},
+{id:5,topic:'المفردات',section:'النص الخارجي',type:'mcq',story:true,q:'ما المقصود بكلمة «الاعتدال» في عبارة «الاعتدال في الري»؟',opts:['استخدام الماء بمقدار مناسب دون إفراط','استخدام الماء بكميات كبيرة باستمرار','الامتناع تماماً عن سقي النباتات','تغيير نوع التربة كل يوم'],a:0,e:'الاعتدال هو التوسط وتجنب الإفراط أو التقصير.'},
+{id:6,topic:'القراءة',section:'النص الخارجي',type:'mcq',story:true,q:'ماذا نستنتج من تصرف الطلاب بعد هبوب الرياح؟',opts:['أنهم واجهوا المشكلة بالتعاون واستفادوا من التجربة','أنهم قرروا إلغاء المشروع بسبب الصعوبات','أنهم اعتمدوا على المعلمة لإنجاز العمل بدلاً منهم','أنهم أدركوا أن التخطيط لا فائدة منه'],a:0,e:'إعادة ترتيب الحديقة وتثبيت الأوعية تدل على المرونة والتعاون وعدم الاستسلام.'},
+{id:7,topic:'الحال',section:'النص الخارجي',type:'mcq',story:true,q:'في جملة «وقف سالم يستمع إلى الجميع»، ما نوع التعبير «يستمع إلى الجميع» من حيث موقعه الإعرابي؟',opts:['جملة فعلية في محل نصب حال','جملة فعلية في محل رفع خبر','جملة فعلية في محل جر نعت','جملة فعلية في محل نصب مفعول به'],a:0,e:'الجملة الفعلية بعد صاحب الحال تصف هيئته وقت وقوع الفعل، فهي في محل نصب حال.'},
+{id:8,topic:'القراءة',section:'النص الخارجي',type:'mcq',story:true,q:'أي عبارة تعبّر عن التفكير النقدي الذي يدعمه النص؟',opts:['قد يتحول الخطأ إلى فرصة للتعلم إذا أحسن الإنسان التعامل معه','كل مشروع ناجح يجب أن يخلو من أي مشكلة أو عقبة','السرعة في تنفيذ العمل أهم من دراسة نتائجه','ينبغي تجاهل آراء الآخرين عند اتخاذ القرارات'],a:0,e:'النص يؤكد أن التجربة والأخطاء يمكن أن تكون مصدراً للتعلم وتحسين العمل.'},
+{id:9,topic:'الشعر',section:'من تجارب الحياة',type:'mcq',q:'من الشاعر الذي نُسبت إليه قصيدة «من تجارب الحياة» في مقرر الدراسة؟',opts:['أبو تمام','أحمد شوقي','المتنبي','حافظ إبراهيم'],a:0,e:'الشاعر المذكور في عنوان النص هو أبو تمام، واسمه حبيب بن أوس الطائي.'},
+{id:10,topic:'الشعر',section:'من تجارب الحياة',type:'mcq',q:'ما الاسم الحقيقي للشاعر أبي تمام؟',opts:['حبيب بن أوس الطائي','أحمد بن الحسين المتنبي','محمد بن إدريس الشافعي','أبو عثمان عمرو بن بحر'],a:0,e:'أبو تمام هو حبيب بن أوس الطائي، من شعراء العصر العباسي.'},
+{id:11,topic:'الشعر',section:'من تجارب الحياة',type:'mcq',q:'إلى أي عصر أدبي ينتمي أبو تمام؟',opts:['العصر العباسي','العصر الجاهلي','العصر الأموي','العصر الأندلسي'],a:0,e:'أبو تمام من أبرز شعراء العصر العباسي.'},
+{id:12,topic:'الشعر',section:'من تجارب الحياة',type:'mcq',q:'أي صفة أدبية اشتهر بها شعر أبي تمام؟',opts:['عمق المعاني وكثرة الصور البلاغية والمحسنات','الاقتصار على السرد التاريخي المباشر','استخدام اللغة العامية في معظم قصائده','الابتعاد عن الخيال والتصوير الأدبي'],a:0,e:'اشتهر أبو تمام بقوة المعاني والابتكار في الصور البلاغية والبديع.'},
+{id:13,topic:'الشعر',section:'من تجارب الحياة',type:'mcq',q:'عندما يعرض الشاعر تجربة إنسانية بهدف توجيه القارئ، فإن الغرض الأقرب هو:',opts:['استخلاص الحكمة والعبرة من التجربة','وصف المكان دون التعبير عن فكرة','تسجيل الأحداث دون أي دلالة','عرض المعلومات العلمية المتخصصة'],a:0,e:'الشعر الحكمي يعرض تجارب الحياة ليستخلص منها الإنسان العبر والدروس.'},
+{id:14,topic:'المفردات',section:'من تجارب الحياة',type:'mcq',q:'ما معنى «العِبرة» في سياق الحديث عن تجارب الحياة؟',opts:['الدرس المستفاد من موقف أو تجربة','المظهر الخارجي للإنسان','الخبر الذي لا يحمل أي فائدة','الحدث الذي يحدث دون سبب'],a:0,e:'العبرة هي الدرس أو الحكمة التي يتعلمها الإنسان من تجربة.'},
+{id:15,topic:'الشعر',section:'من تجارب الحياة',type:'tf',q:'ينتمي أبو تمام إلى العصر العباسي، ويُعد من أبرز شعرائه.',a:true,e:'أبو تمام شاعر عباسي بارز، وله مكانة مهمة في تاريخ الشعر العربي.'},
+{id:16,topic:'التمييز',section:'التمييز',type:'mcq',q:'ما التعريف الأدق للتمييز؟',opts:['اسم نكرة يوضح اسماً أو جملةً مبهمة قبله','اسم معرفة يبين هيئة صاحبه عند حدوث الفعل','فعل مضارع يوضح زمن وقوع الحدث','اسم مجرور يأتي دائماً بعد حرف الجر'],a:0,e:'التمييز اسم نكرة منصوب غالباً، يزيل الإبهام عن اسم أو نسبة.'},
+{id:17,topic:'التمييز',section:'التمييز',type:'mcq',q:'حدد التمييز في الجملة: «اشتريتُ عشرين كتاباً».',opts:['كتاباً','اشتريتُ','عشرين','ضمير التاء'],a:0,e:'«كتاباً» تمييز منصوب يوضح المقصود بالعدد عشرين.'},
+{id:18,topic:'التمييز',section:'التمييز',type:'mcq',q:'ما نوع التمييز في الجملة: «ازداد الطالب علماً»؟',opts:['تمييز نسبة (ملحوظ)','تمييز ذات (ملفوظ)','حال مفردة','نعت مفرد'],a:0,e:'«علماً» يوضح النسبة في الجملة، فهو تمييز نسبة أو تمييز ملحوظ.'},
+{id:19,topic:'التمييز',section:'التمييز',type:'tf',q:'يأتي تمييز الذات لتوضيح كلمة مبهمة تدل على مقدار أو عدد أو وزن أو مساحة.',a:true,e:'تمييز الذات، ويسمى أيضاً الملفوظ، يوضح أسماء المقادير والأعداد ونحوها.'},
+{id:20,topic:'التمييز',section:'التمييز',type:'mcq',q:'ما إعراب كلمة «ماءً» في: «شربتُ لتراً ماءً»؟',opts:['تمييز منصوب وعلامة نصبه الفتحة','حال منصوب وعلامة نصبه الفتحة','مفعول به منصوب وعلامة نصبه الفتحة','نعت مجرور وعلامة جره الكسرة'],a:0,e:'«ماءً» تمييز ذات منصوب يوضح نوع المقدار المذكور وهو اللتر.'},
+{id:21,topic:'التمييز',section:'التمييز',type:'mcq',q:'أي الجمل الآتية تحتوي على تمييز نسبة؟',opts:['امتلأ القلب سروراً','رأيت الطالب مبتسماً','عاد المسافر متعباً','جاء الطفل مسرعاً'],a:0,e:'«سروراً» يوضح النسبة في جملة «امتلأ القلب»، فهو تمييز نسبة.'},
+{id:22,topic:'التمييز',section:'التمييز',type:'fill',q:'أكمل: «طاب المكانُ ______». الكلمة المناسبة لتمييز النسبة هي:',answers:['هواءً','هواء'],display:'هواءً',e:'«هواءً» تمييز منصوب يوضح جهة الطيب في المكان.'},
+{id:23,topic:'الحال',section:'الحال',type:'mcq',q:'ما التعريف الصحيح للحال؟',opts:['اسم نكرة منصوب يبين هيئة صاحبه عند وقوع الفعل','اسم نكرة يوضح إبهام العدد أو المقدار','اسم معرفة يحدد من قام بالفعل','فعل يبين زمن وقوع الحدث'],a:0,e:'الحال اسم نكرة منصوب يبين هيئة صاحب الحال وقت حدوث الفعل.'},
+{id:24,topic:'الحال',section:'الحال',type:'mcq',q:'حدد الحال في الجملة: «عاد المسافرُ متعباً».',opts:['متعباً','المسافر','عاد','الواو'],a:0,e:'«متعباً» حال مفردة منصوبة تبين هيئة المسافر عند عودته.'},
+{id:25,topic:'الحال',section:'الحال',type:'mcq',q:'ما نوع الحال في: «دخل الطلاب وهم مبتسمون»؟',opts:['جملة اسمية في محل نصب حال','جملة فعلية في محل نصب حال','حال مفردة','تمييز نسبة'],a:0,e:'«وهم مبتسمون» جملة اسمية مرتبطة بصاحب الحال بالواو، في محل نصب حال.'},
+{id:26,topic:'الحال',section:'الحال',type:'tf',q:'الأصل في الحال أن يكون نكرة، وأن يكون صاحب الحال معرفة.',a:true,e:'هذه هي القاعدة العامة، مع وجود أحوال وتراكيب لها أحكام خاصة.'},
+{id:27,topic:'الحال',section:'الحال',type:'mcq',q:'ما الفرق الأساسي بين الحال والنعت في الجملة: «رأيتُ طفلاً باكياً»؟',opts:['باكياً قد تكون نعتاً يصف الطفل، ويُحدد موقعها من السياق والمعنى','باكياً تمييز دائماً لأنه اسم منصوب','باكياً فعل مضارع يوضح سبب الرؤية','باكياً مفعول به ثانٍ في جميع الحالات'],a:0,e:'النعت يصف الاسم ويوضحه ويتبعه في الإعراب، أما الحال فيبين الهيئة المؤقتة لصاحبه وقت حدوث الفعل. وفي هذه الجملة يتحدد المقصود بالسياق.'},
+{id:28,topic:'الحال',section:'الحال',type:'mcq',q:'أي جملة تحتوي على حال شبه جملة؟',opts:['رأيت الطائر فوق الغصن','عاد الجندي منتصراً','دخل الطالب وهو يبتسم','السماء صافية اليوم'],a:0,e:'«فوق الغصن» ظرف مكان متعلق بمحذوف في محل نصب حال، على تقدير: مستقراً فوق الغصن.'},
+{id:29,topic:'الحال',section:'الحال',type:'mcq',q:'ما صاحب الحال في الجملة: «وقف المعلمُ مبتسماً»؟',opts:['المعلم','وقف','مبتسماً','الفاعل المستتر'],a:0,e:'صاحب الحال هو الاسم الذي تبين الحال هيئته، وهو «المعلم».'},
+{id:30,topic:'الحال',section:'الحال',type:'fill',q:'أكمل بجمع الحال المناسب: «عاد اللاعبون ______» (منتصر).',answers:['منتصرين'],display:'منتصرين',e:'«منتصرين» حال مفردة منصوبة بالياء لأنها جمع مذكر سالم.'}
+];
+let order=[],answers={},current=0,remaining=2700,timerInterval=null,finished=false,finalData=null;
+const STORAGE='arabic_final_grade8_v1';const $=id=>document.getElementById(id);
+function shuffle(arr){let a=[...arr];for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function save(){if(!finished)localStorage.setItem(STORAGE,JSON.stringify({order:order.map(q=>q.id),answers,current,remaining}));}
+function restore(){try{const s=JSON.parse(localStorage.getItem(STORAGE));if(!s||!Array.isArray(s.order)||s.order.length!==30)return false;const map=Object.fromEntries(questions.map(q=>[q.id,q]));order=s.order.map(id=>map[id]);if(order.some(q=>!q))return false;answers=s.answers||{};current=Math.max(0,Math.min(29,s.current||0));remaining=Math.max(0,s.remaining||0);return true;}catch(e){return false;}}
+function startQuiz(useSaved=false){if(!useSaved){order=shuffle(questions);answers={};current=0;remaining=2700;finished=false;}$('welcome').classList.add('hidden');$('quiz').classList.remove('hidden');$('results').classList.add('hidden');render();updateTimer();clearInterval(timerInterval);timerInterval=setInterval(()=>{if(remaining>0){remaining--;updateTimer();save();}else finishQuiz(true);},1000);save();}
+function updateTimer(){let m=Math.floor(remaining/60).toString().padStart(2,'0'),s=(remaining%60).toString().padStart(2,'0');$('timer').textContent=m+':'+s;$('timer').classList.toggle('warning',remaining<=300);}
+function progress(){let count=order.filter(q=>answers[q.id]!==undefined&&answers[q.id]!==null&&String(answers[q.id]).trim()!=='').length,p=Math.round(count/30*100);$('progressFill').style.width=p+'%';$('progressText').textContent=count+' / 30 تمت الإجابة';$('finishProgress').textContent=count+' من 30 سؤالاً تمت الإجابة عنها.';}
+function typeName(t){return t==='mcq'?'اختيار من متعدد':t==='tf'?'صح أم خطأ':'أكمل الفراغ';}
+function render(){const q=order[current];$('questionCounter').textContent=`QUESTION ${String(current+1).padStart(2,'0')} / 30`;$('questionSection').textContent=q.section+' · '+typeName(q.type);$('questionText').textContent=q.q;$('prevBtn').disabled=current===0;$('nextBtn').textContent=current===29?'مراجعة الإنهاء':'التالي ←';$('storyBox').classList.toggle('hidden',!q.story);if(q.story)$('storyBox').innerHTML='<h3>النص الخارجي: حديقة المدرسة</h3>'+story.split('\n\n').map(p=>'<p>'+escapeHTML(p)+'</p>').join('');const area=$('answerArea');area.innerHTML='';if(q.type==='fill'){let input=document.createElement('input');input.className='fill-input';input.placeholder='اكتب إجابتك هنا...';input.value=answers[q.id]||'';input.autocomplete='off';input.addEventListener('input',()=>{answers[q.id]=input.value;save();progress();renderNav();});area.appendChild(input);}else{let opts=q.type==='tf'?['صواب','خطأ']:q.opts;if(!q.displayOptions)q.displayOptions=shuffle(opts.map((v,i)=>({text:v,original:i})));q.displayOptions.forEach((opt,i)=>{let selected=String(answers[q.id])===String(opt.original),label=document.createElement('label');label.className='option'+(selected?' selected':'');let radio=document.createElement('input');radio.type='radio';radio.name='answer';radio.checked=selected;radio.addEventListener('change',()=>{answers[q.id]=opt.original;save();render();});let letter=document.createElement('span');letter.className='option-letter';letter.textContent=q.type==='tf'?'TRUE / FALSE':'OPTION '+String.fromCharCode(65+i);let text=document.createElement('span');text.textContent=opt.text;label.append(radio,letter,text);area.appendChild(label);});}renderNav();progress();}
+function renderNav(){const grid=$('navGrid');grid.innerHTML='';order.forEach((q,i)=>{let b=document.createElement('button');b.className='nav-item'+(i===current?' current':'')+(hasAnswer(q)?' answered':'');b.textContent=i+1;b.addEventListener('click',()=>{if(i!==current&&!hasAnswer(order[current])){alert('يرجى اختيار إجابة للسؤال الحالي قبل الانتقال.');return;}current=i;render();save();});grid.appendChild(b);});}
+function hasAnswer(q){return answers[q.id]!==undefined&&answers[q.id]!==null&&String(answers[q.id]).trim()!=='';}
+function escapeHTML(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function normalized(s){return String(s||'').trim().replace(/[ًٌٍَُِّْـ]/g,'').replace(/[أإآ]/g,'ا').replace(/ى/g,'ي').replace(/\s+/g,' ').replace(/[.,،؛؟!]/g,'');}
+function isCorrect(q){if(q.type==='fill')return q.answers.some(a=>normalized(a)===normalized(answers[q.id]));if(q.type==='tf')return Number(answers[q.id])===(q.a?0:1);return Number(answers[q.id])===q.a;}
+function next(){if(!hasAnswer(order[current])){alert('لا يمكنك الانتقال قبل الإجابة عن السؤال.');return;}if(current<29){current++;render();save();}else{let unanswered=order.filter(q=>!hasAnswer(q));if(unanswered.length){current=order.findIndex(q=>!hasAnswer(q));render();alert('بقيت أسئلة دون إجابة. أجب عنها أولاً.');}else if(confirm('هل تريد إنهاء الامتحان وتسليم جميع الإجابات؟'))finishQuiz(false);}}
+function previous(){if(current>0){current--;render();save();}}
+function finishQuiz(timeout=false){if(finished)return;let unanswered=order.filter(q=>!hasAnswer(q));if(unanswered.length&&!timeout){alert('لا يمكن تسليم الامتحان. يوجد '+unanswered.length+' سؤال دون إجابة.');current=order.findIndex(q=>!hasAnswer(q));render();return;}if(!timeout&&!confirm('هل أنت متأكد من إنهاء الامتحان؟ لن تستطيع تغيير إجاباتك بعد ذلك.'))return;finished=true;clearInterval(timerInterval);localStorage.removeItem(STORAGE);let correct=order.filter(isCorrect).length,percent=Math.round(correct/30*100),grade=percent>=90?'A':percent>=80?'B':percent>=70?'C':percent>=60?'D':'F';finalData={correct,percent,grade};showResults();}
+function showResults(){$('quiz').classList.add('hidden');$('results').classList.remove('hidden');let {correct,percent,grade}=finalData;$('gradeLetter').textContent=grade;$('gradeLetter').className='grade grade-'+grade;$('scoreText').textContent=correct+' / 30 · '+percent+'%';let messages={A:'ممتاز! لقد أظهرت إتقاناً عالياً لمهارات اللغة العربية.',B:'أداء قوي جداً! راجع بعض التفاصيل للوصول إلى الدرجة الكاملة.',C:'أداء جيد. تحتاج إلى مراجعة بعض المهارات والقواعد.',D:'أنت على الطريق الصحيح، لكنك تحتاج إلى تدريب إضافي.',F:'لا تقلق، هذه فرصة لمعرفة نقاط الضعف وتحسين مستواك.'};$('gradeMessage').textContent=messages[grade];$('correctCount').textContent=correct;$('wrongCount').textContent=30-correct;let topics=['القراءة','الشعر','المفردات','التمييز','الحال'],labels={القراءة:'القراءة والفهم',الشعر:'الشعر والأدب',المفردات:'المفردات',التمييز:'التمييز',الحال:'الحال'},performance={};topics.forEach(t=>{let subset=order.filter(q=>q.topic===t),got=subset.filter(isCorrect).length;performance[t]={got,total:subset.length,pct:subset.length?Math.round(got/subset.length*100):0};});$('topicResults').innerHTML=topics.map(t=>{let p=performance[t];return `<div class="topic"><div class="topic-head"><span>${labels[t]}</span><span>${p.got}/${p.total}</span></div><div class="mini-track"><div class="mini-fill" style="width:${p.pct}%"></div></div><small class="muted">${p.pct}%</small></div>`;}).join('');let strongest=topics.filter(t=>performance[t].total).sort((a,b)=>performance[b].pct-performance[a].pct),weakest=[...strongest].reverse(),feedback='';if(correct===30)feedback='أجبت عن جميع الأسئلة إجابة صحيحة. حافظ على هذا المستوى وواصل التدريب.';else{let best=strongest[0],weak=weakest[0];feedback='أقوى مهارة لديك هي '+labels[best]+' ('+performance[best].pct+'%). ';feedback+='تحتاج إلى التركيز أكثر على '+labels[weak]+' ('+performance[weak].pct+'%). ';if(performance['التمييز'].pct<70)feedback+='راجع الفرق بين تمييز الذات وتمييز النسبة وإعراب كل منهما. ';if(performance['الحال'].pct<70)feedback+='تدرّب على تحديد صاحب الحال وأنواع الحال والفرق بينه وبين النعت. ';if(performance['القراءة'].pct<70)feedback+='اقرأ النصوص بتركيز واستخرج الفكرة الرئيسة والأدلة والمعاني الضمنية. ';if(performance['الشعر'].pct<70)feedback+='راجع معلومات الشاعر والأفكار العامة والخصائص الأدبية. ';}$('personalFeedback').textContent=feedback;$('certificateBox').classList.toggle('hidden',percent<=90);$('certificateScore').textContent='النتيجة: '+correct+' من 30 ('+percent+'%)';$('reviewArea').classList.add('hidden');$('wrongReviewBtn').onclick=()=>showReview('wrong');$('allReviewBtn').onclick=()=>showReview('all');if(percent>=90)confetti();}
+function correctText(q){if(q.type==='fill')return q.display;if(q.type==='tf')return q.a?'صواب':'خطأ';return q.opts[q.a];}
+function userText(q){if(!hasAnswer(q))return 'لم تتم الإجابة';if(q.type==='fill')return answers[q.id];if(q.type==='tf')return Number(answers[q.id])===0?'صواب':'خطأ';return q.opts[Number(answers[q.id])];}
+function showReview(mode){let area=$('reviewArea');area.classList.remove('hidden');let selected=order.filter(q=>mode==='all'||!isCorrect(q));if(!selected.length){area.innerHTML='<p>ممتاز! لا توجد إجابات خاطئة.</p>';return;}area.innerHTML=selected.map(q=>{let correct=isCorrect(q);return `<div class="review-item ${correct?'correct':'wrong'}"><div class="section-label">${q.section} · ${typeName(q.type)}</div><strong>${q.q}</strong><div class="answer-line">إجابتك: <strong>${escapeHTML(userText(q))}</strong></div><div class="answer-line">الإجابة الصحيحة: <strong style="color:var(--green)">${escapeHTML(correctText(q))}</strong></div><div class="explanation"><strong>التفسير:</strong> ${q.e}</div><div style="margin-top:8px;color:${correct?'var(--green)':'var(--red)'};font-weight:700">${correct?'✓ إجابة صحيحة':'✗ إجابة خاطئة'}</div></div>`;}).join('');}
+function confetti(){for(let i=0;i<90;i++){let el=document.createElement('div');el.className='confetti';el.style.left=Math.random()*100+'vw';el.style.background=['#7654d6','#3979dc','#ed9842','#db6b9e','#249b75','#df5963'][i%5];el.style.animationDelay=Math.random()*2+'s';document.body.appendChild(el);setTimeout(()=>el.remove(),5000);}}
+$('startBtn').onclick=()=>startQuiz(false);$('resumeBtn').onclick=()=>startQuiz(true);$('resetSavedBtn').onclick=()=>{if(confirm('هل تريد حذف المحاولة السابقة والبدء من جديد؟')){localStorage.removeItem(STORAGE);startQuiz(false);}};$('nextBtn').onclick=next;$('prevBtn').onclick=previous;$('finishBtn').onclick=()=>finishQuiz(false);$('retryBtn').onclick=()=>{if(confirm('ستُحذف نتيجة المحاولة الحالية. هل تريد البدء من جديد؟')){finished=false;finalData=null;startQuiz(false);}};
+(function init(){if(restore()){$('resumeBtn').classList.remove('hidden');$('resetSavedBtn').classList.remove('hidden');}})();
+</script>
+</body>
+</html>
