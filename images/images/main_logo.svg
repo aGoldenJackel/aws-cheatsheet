@@ -1,66 +1,61 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
 
-  <!-- Hexagon -->
+  <!-- Background Hexagon -->
   <polygon
     points="256,24 462,142 462,370 256,488 50,370 50,142"
     fill="#2563eb"/>
 
-  <defs>
-    <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#93e5ff"/>
-      <stop offset="100%" stop-color="#38bdf8"/>
-    </linearGradient>
-  </defs>
+  <!-- Flask Body -->
+  <path d="
+    M220 115
+    L220 180
+    L165 325
+    Q155 355 190 355
+    L322 355
+    Q357 355 347 325
+    L292 180
+    L292 115
+    Z"
+    fill="none"
+    stroke="#ffffff"
+    stroke-width="12"
+    stroke-linejoin="round"/>
+
+  <!-- Flask Top -->
+  <line x1="220" y1="115" x2="292" y2="115"
+        stroke="#ffffff"
+        stroke-width="12"
+        stroke-linecap="round"/>
 
   <!-- Water -->
   <path d="
-    M180 275
-    Q218 255 256 275
-    Q294 295 332 275
-    L345 318
-    Q355 350 322 350
-    L190 350
-    Q157 350 167 318
+    M183 270
+    Q220 250 256 270
+    Q292 290 329 270
+    L340 320
+    Q348 345 322 345
+    L190 345
+    Q164 345 172 320
     Z"
-    fill="url(#water)"/>
+    fill="#7dd3fc"/>
 
-  <!-- Flask outline -->
-  <g fill="none"
-     stroke="#ffffff"
-     stroke-width="12"
-     stroke-linecap="round"
-     stroke-linejoin="round">
+  <!-- Large Bubble -->
+  <circle cx="256" cy="225" r="10" fill="#ffffff"/>
 
-    <line x1="220" y1="105" x2="220" y2="180"/>
-    <line x1="292" y1="105" x2="292" y2="180"/>
-    <line x1="220" y1="105" x2="292" y2="105"/>
+  <!-- Small Bubbles -->
+  <circle cx="220" cy="250" r="6" fill="#ffffff"/>
+  <circle cx="292" cy="248" r="6" fill="#ffffff"/>
 
-    <path d="
-      M220 180
-      L165 320
-      Q155 350 190 350
-      L322 350
-      Q357 350 347 320
-      L292 180
-    "/>
-
-  </g>
-
-  <!-- Bubbles -->
-  <circle cx="210" cy="245" r="8" fill="#ffffff"/>
-  <circle cx="290" cy="235" r="6" fill="#ffffff"/>
-  <circle cx="255" cy="215" r="5" fill="#ffffff"/>
-  <circle cx="230" cy="265" r="4" fill="#ffffff"/>
-  <circle cx="280" cy="270" r="4" fill="#ffffff"/>
-
-<!-- AWS -->
-<text
+  <!-- AWS -->
+  <text
     x="256"
     y="305"
-    text-anchor="middle"
     fill="#ffffff"
-    font-family="Arial"
-    font-size="26"
+    text-anchor="middle"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="30"
     font-weight="900">
-AWS
-</text>
+    AWS
+  </text>
+
+</svg>
