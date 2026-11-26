@@ -23,7 +23,7 @@
 
 							<!-- Logo -->
 								<div class="logo">
-									<span class="symbol"><img src="images/logo.svg" alt="" /></span>
+									<span class="symbol"><img src="images/images/main_logo.svg" alt="" /></span>
 									<span class="title">Aws StudyLab</span>
 								</div>
 							<nav>
@@ -192,7 +192,7 @@
 const exams = [
     {
         name: "Arabic • اللغة العربية",
-        date: "2026-11-27T00:00:00"
+        date: "2026-11-27"
     },
     {
         name: "Science",
@@ -204,9 +204,10 @@ const exams = [
     }
 ];
 
-const today = new Date();
+const today = new Date("2026-11-26");
 today.setHours(0,0,0,0);
-
+console.log(today);
+							
 const todaysExam = exams.find(exam => {
     const d = new Date(exam.date);
     d.setHours(0,0,0,0);
@@ -250,15 +251,6 @@ else if (nextExam) {
     );
 
     let countdown;
-
-if (days === 0)
-    countdown = "Today";
-else if (days === 1)
-    countdown = "Tomorrow";
-else
-    countdown = `In ${days} Days`;
-
-let countdown;
 
 if (days === 0)
     countdown = "Today";
