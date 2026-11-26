@@ -1,60 +1,76 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
 
-  <!-- Background Hexagon -->
+  <defs>
+
+    <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#93e5ff"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+
+    <!-- Flask inner shape -->
+    <clipPath id="flaskClip">
+      <path d="
+        M220 180
+        L165 320
+        Q155 350 190 350
+        L322 350
+        Q357 350 347 320
+        L292 180
+        Z"/>
+    </clipPath>
+
+  </defs>
+
+  <!-- Blue Phantom Hexagon -->
   <polygon
     points="256,24 462,142 462,370 256,488 50,370 50,142"
     fill="#2563eb"/>
 
-  <!-- Flask Body -->
-  <path d="
-    M220 115
-    L220 180
-    L165 325
-    Q155 355 190 355
-    L322 355
-    Q357 355 347 325
-    L292 180
-    L292 115
-    Z"
-    fill="none"
-    stroke="#ffffff"
-    stroke-width="12"
-    stroke-linejoin="round"/>
+  <!-- Water clipped perfectly inside flask -->
+  <g clip-path="url(#flaskClip)">
+    <path d="
+      M140 260
+      Q190 235 256 260
+      Q322 285 372 260
 
-  <!-- Flask Top -->
-  <line x1="220" y1="115" x2="292" y2="115"
-        stroke="#ffffff"
-        stroke-width="12"
-        stroke-linecap="round"/>
+      L372 380
+      L140 380
+      Z"
+      fill="url(#water)"/>
+  </g>
 
- <!-- Water -->
-<path d="
-M180 270
-Q220 250 256 270
-Q292 290 332 270
+  <!-- Flask outline -->
+  <g fill="none"
+     stroke="#ffffff"
+     stroke-width="12"
+     stroke-linecap="round"
+     stroke-linejoin="round">
 
-L342 318
-Q350 345 322 345
+    <line x1="220" y1="110" x2="220" y2="180"/>
+    <line x1="292" y1="110" x2="292" y2="180"/>
+    <line x1="220" y1="110" x2="292" y2="110"/>
 
-L190 345
-Q162 345 170 318
+    <path d="
+      M220 180
+      L165 320
+      Q155 350 190 350
+      L322 350
+      Q357 350 347 320
+      L292 180
+      Z"/>
+  </g>
 
-Z"
-fill="#7dd3fc"/>
-
-  <!-- Large Bubble -->
-  <circle cx="256" cy="225" r="10" fill="#ffffff"/>
-
-  <!-- Small Bubbles -->
-  <circle cx="220" cy="250" r="6" fill="#ffffff"/>
-  <circle cx="292" cy="248" r="6" fill="#ffffff"/>
+  <!-- Bubbles -->
+  <circle cx="220" cy="245" r="8" fill="#ffffff"/>
+  <circle cx="295" cy="235" r="6" fill="#ffffff"/>
+  <circle cx="260" cy="220" r="5" fill="#ffffff"/>
 
   <!-- AWS -->
   <text
     x="256"
     y="305"
-    fill="#ffffff"
     text-anchor="middle"
+    fill="#ffffff"
     font-family="Arial, Helvetica, sans-serif"
     font-size="30"
     font-weight="900">
