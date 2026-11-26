@@ -16,9 +16,7 @@
 	<body class="is-preload">
 		<!-- Wrapper -->
 			<div id="wrapper">
-				<div id="examBanner" class="top-exam-bar">
-    Loading next exam...
-</div>
+				<div id="examBanner" class="top-exam-bar"></div>
 				<!-- Header -->
 					<header id="header">
 						<div class="inner">
@@ -189,6 +187,73 @@
 			<script src="assets/js/browser.min.js"></script>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
+						<script>
+
+const exams = [
+    {
+        name: "Arabic Language • اللغة العربية",
+        date: "2026-11-27"
+    },
+    {
+        name: "Science",
+        date: "2026-12-07"
+    },
+    {
+        name: "Islamic Education • التربية الإسلامية",
+        date: "2026-12-08"
+    }
+];
+
+const today = new Date();
+today.setHours(0,0,0,0);
+
+const todaysExam = exams.find(exam => {
+    const d = new Date(exam.date);
+    d.setHours(0,0,0,0);
+    return d.getTime() === today.getTime();
+});
+
+const nextExam = exams.find(exam => {
+    const d = new Date(exam.date);
+    d.setHours(0,0,0,0);
+    return d > today;
+});
+
+if (todaysExam) {
+
+    let html =
+        `📚 ${todaysExam.name} is Today`;
+
+    if (nextExam) {
+
+        const examDate = new Date(nextExam.date);
+
+        const days = Math.ceil(
+            (examDate - today) /
+            (1000 * 60 * 60 * 24)
+        );
+
+        html +=
+            `<br>Next Exam: ${nextExam.name} • In ${days} Days`;
+    }
+
+    document.getElementById("examBanner").innerHTML = html;
+
+}
+else if (nextExam) {
+
+    const examDate = new Date(nextExam.date);
+
+    const days = Math.ceil(
+        (examDate - today) /
+        (1000 * 60 * 60 * 24)
+    );
+
+    document.getElementById("examBanner").innerHTML =
+        `📚 Next Exam: ${nextExam.name} • In ${days} Days`;
+}
+
+</script>
 			<script src="assets/js/main.js"></script>
 
 	</body>
