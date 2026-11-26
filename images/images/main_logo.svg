@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+
+    <!-- Hexagon -->
+    <polygon
+        points="256,24 462,142 462,370 256,488 50,370 50,142"
+        fill="#585858"/>
+
+    <!-- Flask -->
+    <g fill="none"
+       stroke="#ffffff"
+       stroke-width="10"
+       stroke-linecap="round"
+       stroke-linejoin="round">
+
+        <!-- Neck -->
+        <line x1="225" y1="125" x2="225" y2="190"/>
+        <line x1="287" y1="125" x2="287" y2="190"/>
+        <line x1="225" y1="125" x2="287" y2="125"/>
+
+        <!-- Flask Body -->
+        <path d="
+            M225 190
+            L175 315
+            Q162 345 190 345
+            L322 345
+            Q350 345 337 315
+            L287 190
+        "/>
+
+        <!-- Liquid -->
+        <path d="
+            M190 285
+            Q223 270 256 285
+            Q289 300 322 285
+        "/>
+    </g>
+
+    <!-- Filled Bubbles -->
+    <circle cx="215" cy="250" r="5" fill="#ffffff"/>
+    <circle cx="290" cy="245" r="6" fill="#ffffff"/>
+    <circle cx="255" cy="225" r="4" fill="#ffffff"/>
+    <circle cx="235" cy="270" r="3" fill="#ffffff"/>
+
+    <!-- AWS -->
+    <text x="256"
+          y="333"
+          text-anchor="middle"
+          fill="#ffffff"
+          font-family="Arial, Helvetica, sans-serif"
+          font-size="30"
+          font-weight="700"
+          letter-spacing="3">
+        AWS
+    </text>
+
+</svg>
