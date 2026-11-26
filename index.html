@@ -191,7 +191,7 @@
 
 const exams = [
     {
-        name: "Arabic Language • اللغة العربية",
+        name: "Arabic • اللغة العربية",
         date: "2026-11-27"
     },
     {
@@ -228,10 +228,10 @@ if (todaysExam) {
 
         const examDate = new Date(nextExam.date);
 
-        const days = Math.ceil(
-            (examDate - today) /
-            (1000 * 60 * 60 * 24)
-        );
+        const days = Math.round(
+    (examDate - today) /
+    (1000 * 60 * 60 * 24)
+);
 
         html +=
             `<br>Next Exam: ${nextExam.name} • In ${days} Days`;
@@ -249,8 +249,17 @@ else if (nextExam) {
         (1000 * 60 * 60 * 24)
     );
 
-    document.getElementById("examBanner").innerHTML =
-        `📚 Next Exam: ${nextExam.name} • In ${days} Days`;
+    let countdown;
+
+if (days === 0)
+    countdown = "Today";
+else if (days === 1)
+    countdown = "Tomorrow";
+else
+    countdown = `In ${days} Days`;
+
+document.getElementById("examBanner").innerHTML =
+    `📚 Next Exam: ${nextExam.name} • ${countdown}`;
 }
 
 </script>
