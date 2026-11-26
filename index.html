@@ -204,9 +204,8 @@ const exams = [
     }
 ];
 
-const today = new Date("2026-11-26");
+const today = new Date();
 today.setHours(0,0,0,0);
-console.log(today);
 							
 const todaysExam = exams.find(exam => {
     const d = new Date(exam.date);
@@ -229,7 +228,7 @@ if (todaysExam) {
 
         const examDate = new Date(nextExam.date);
 
-        const days = Math.round(
+        const days = Math.floor(
     (examDate - today) /
     (1000 * 60 * 60 * 24)
 );
