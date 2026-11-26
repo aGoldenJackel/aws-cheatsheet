@@ -192,7 +192,7 @@
 const exams = [
     {
         name: "Arabic • اللغة العربية",
-        date: "2026-11-27"
+        date: "2026-11-27T00:00:00"
     },
     {
         name: "Science",
@@ -244,12 +244,21 @@ else if (nextExam) {
 
     const examDate = new Date(nextExam.date);
 
-    const days = Math.ceil(
+    const days = Math.floor(
         (examDate - today) /
         (1000 * 60 * 60 * 24)
     );
 
     let countdown;
+
+if (days === 0)
+    countdown = "Today";
+else if (days === 1)
+    countdown = "Tomorrow";
+else
+    countdown = `In ${days} Days`;
+
+let countdown;
 
 if (days === 0)
     countdown = "Today";
