@@ -3364,9 +3364,14 @@ input, select, textarea {
     text-align: center;
 }
 
+#footer .copyright {
+    text-align: center;
+}
+
 #footer .copyright li {
     color: #444444;
     font-size: 0.95em;
-    font-weight: 600;
-    letter-spacing: 0.05em;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+}
 }
