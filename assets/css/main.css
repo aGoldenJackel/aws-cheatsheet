@@ -3375,3 +3375,7 @@ input, select, textarea {
     letter-spacing: 0.03em;
 }
 }
+.logo .symbol img {
+    width: 4em;
+    height: 4em;
+}
